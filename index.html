@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIP SARLU | Excellence en Construction & Innovation</title>
     
+    <!-- Meta SEO -->
+    <meta name="description" content="CIP SARLU - Entreprise leader en construction, énergie solaire et BTP en Guinée. Experts en projets résidentiels, commerciaux et industriels.">
+    <meta name="keywords" content="construction, BTP, énergie solaire, Guinée, bâtiment, ingénierie, CIP SARLU">
+    <meta property="og:title" content="CIP SARLU | Excellence en Construction & Innovation">
+    <meta property="og:description" content="Leader en construction, énergie renouvelable et expertise BTP en Guinée.">
+    <meta property="og:type" content="website">
+    
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -34,8 +41,10 @@
             box-sizing: border-box;
         }
         
-        html {
+        html, body {
             scroll-behavior: smooth;
+            max-width: 100%;
+            overflow-x: hidden;
         }
         
         body {
@@ -349,18 +358,6 @@
             margin-bottom: 25px;
         }
         
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 42px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-        }
-        
         .hero h1 .gradient-text {
             background: linear-gradient(135deg, var(--primary-green), var(--accent-gold));
             -webkit-background-clip: text;
@@ -464,12 +461,6 @@
             padding: 120px 0;
         }
         
-        @media (max-width: 768px) {
-            .section-padding {
-                padding: 80px 0;
-            }
-        }
-        
         .section-header {
             text-align: center;
             margin-bottom: 80px;
@@ -495,18 +486,6 @@
             font-family: 'Montserrat', sans-serif;
             margin-bottom: 20px;
             line-height: 1.2;
-        }
-        
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 36px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .section-title {
-                font-size: 28px;
-            }
         }
         
         .section-title .gradient-text {
@@ -575,26 +554,10 @@
             text-align: center;
         }
         
-        @media (max-width: 768px) {
-            .about-image-float {
-                width: 180px;
-                height: 180px;
-                padding: 20px;
-                bottom: -15px;
-                right: -15px;
-            }
-        }
-        
         .about-image-float h3 {
             font-size: 48px;
             font-weight: 900;
             margin-bottom: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .about-image-float h3 {
-                font-size: 32px;
-            }
         }
         
         .about-image-float p {
@@ -609,12 +572,6 @@
             font-weight: 800;
             margin-bottom: 25px;
             font-family: 'Montserrat', sans-serif;
-        }
-        
-        @media (max-width: 768px) {
-            .about-content h3 {
-                font-size: 28px;
-            }
         }
         
         .about-content p {
@@ -695,22 +652,10 @@
             overflow: hidden;
         }
         
-        @media (max-width: 992px) {
-            .service-card {
-                grid-template-columns: 1fr;
-            }
-        }
-        
         .service-image {
             position: relative;
             height: 600px;
             overflow: hidden;
-        }
-        
-        @media (max-width: 768px) {
-            .service-image {
-                height: 350px;
-            }
         }
         
         .service-image::before {
@@ -743,12 +688,6 @@
             justify-content: center;
         }
         
-        @media (max-width: 768px) {
-            .service-content {
-                padding: 35px;
-            }
-        }
-        
         .service-number {
             font-size: 80px;
             font-weight: 900;
@@ -766,12 +705,6 @@
             font-weight: 800;
             margin-bottom: 25px;
             font-family: 'Montserrat', sans-serif;
-        }
-        
-        @media (max-width: 768px) {
-            .service-content h3 {
-                font-size: 28px;
-            }
         }
         
         .service-content p {
@@ -806,13 +739,6 @@
             align-items: center;
         }
         
-        @media (max-width: 768px) {
-            .carousel-nav {
-                gap: 30px;
-                flex-wrap: wrap;
-            }
-        }
-        
         .carousel-btn {
             width: 60px;
             height: 60px;
@@ -824,6 +750,8 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 10px 30px rgba(41, 219, 25, 0.3);
+            position: relative;
+            z-index: 10; /* keep under indicators */
         }
         
         .carousel-btn:hover {
@@ -834,6 +762,12 @@
         .carousel-indicators {
             display: flex;
             gap: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            margin: 0 20px;
+            position: relative;
+            z-index: 30; /* ensure indicators appear above arrows */
         }
         
         .indicator {
@@ -859,18 +793,6 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 60px;
-        }
-        
-        @media (max-width: 992px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
         }
         
         .project-card {
@@ -933,11 +855,13 @@
             font-weight: 700;
             margin-bottom: 10px;
             font-family: 'Montserrat', sans-serif;
+            color: white;
         }
         
         .project-description {
             font-size: 14px;
             margin-bottom: 20px;
+            color: white;
         }
         
         .project-link {
@@ -994,12 +918,6 @@
             font-style: italic;
         }
         
-        @media (max-width: 768px) {
-            .testimonial-text {
-                font-size: 20px;
-            }
-        }
-        
         .testimonial-author {
             display: flex;
             align-items: center;
@@ -1038,13 +956,6 @@
             grid-template-columns: 1fr 1.5fr;
             gap: 80px;
             margin-top: 60px;
-        }
-        
-        @media (max-width: 992px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
         }
         
         .contact-info {
@@ -1100,23 +1011,11 @@
             border: 1px solid rgba(41, 219, 25, 0.1);
         }
         
-        @media (max-width: 768px) {
-            .contact-form {
-                padding: 30px;
-            }
-        }
-        
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
             margin-bottom: 25px;
-        }
-        
-        @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
         }
         
         .form-group {
@@ -1127,12 +1026,6 @@
         
         .form-group.full-width {
             grid-column: span 2;
-        }
-        
-        @media (max-width: 768px) {
-            .form-group.full-width {
-                grid-column: span 1;
-            }
         }
         
         .form-group label {
@@ -1168,6 +1061,26 @@
             resize: vertical;
         }
         
+        /* Validation styles */
+        .form-control:invalid {
+            border-color: #dc3545;
+        }
+        
+        .form-control:valid {
+            border-color: #28a745;
+        }
+        
+        .form-feedback {
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-control:invalid + .form-feedback {
+            display: block;
+            color: #dc3545;
+        }
+        
         /* ============ FOOTER ============ */
         footer {
             padding: 80px 0 30px;
@@ -1180,19 +1093,6 @@
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 60px;
             margin-bottom: 50px;
-        }
-        
-        @media (max-width: 1200px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
         }
         
         .footer-brand h3 {
@@ -1331,6 +1231,238 @@
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(41, 219, 25, 0.6);
         }
+        
+        /* ============ RESPONSIVE STYLES ============ */
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            /* Désactiver le curseur sur mobile */
+            .cursor, .cursor-follower {
+                display: none;
+            }
+            
+            /* Hero section */
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding-top: 100px;
+                padding-bottom: 50px;
+            }
+            
+            .hero-content {
+                padding-top: 80px;
+            }
+            
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero-description {
+                font-size: 18px;
+            }
+            
+            .hero-stats {
+                margin-top: 50px;
+                gap: 30px;
+                justify-content: center;
+            }
+            
+            .stat {
+                text-align: center;
+                flex: 1;
+                min-width: 120px;
+            }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 15px 30px;
+                font-size: 15px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            /* Sections */
+            .section-padding {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 36px;
+                line-height: 1.3;
+            }
+            
+            /* About section */
+            .about-image-float {
+                width: 180px;
+                height: 180px;
+                padding: 20px;
+                bottom: -15px;
+                right: -15px;
+            }
+            
+            .about-image-float h3 {
+                font-size: 32px;
+            }
+            
+            .about-content h3 {
+                font-size: 28px;
+            }
+            
+            /* Services carousel */
+            .service-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-image {
+                height: 350px;
+            }
+            
+            .service-content {
+                padding: 35px;
+            }
+            
+            .service-content h3 {
+                font-size: 28px;
+            }
+            
+            .carousel-nav {
+                gap: 30px;
+                flex-wrap: wrap;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .carousel-indicators {
+                order: -1;
+                margin-bottom: 26px; /* more spacing to prevent overlap */
+                width: 100%;
+                justify-content: center;
+                position: relative;
+                z-index: 30; /* ensure indicators appear above arrows */
+            }
+            
+            .carousel-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+                position: relative;
+                z-index: 10;
+            }
+            
+            /* Projects grid */
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Testimonials */
+            .testimonial-text {
+                font-size: 20px;
+            }
+            
+            /* Contact section */
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            /* Footer */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            /* Navbar mobile */
+            .navbar-collapse {
+                background: rgba(10, 14, 26, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 20px;
+                border-radius: 0 0 20px 20px;
+                margin-top: 10px;
+            }
+            
+            .nav-link {
+                margin: 10px 0;
+                padding: 12px 20px !important;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.05);
+            }
+            
+            .cta-nav {
+                margin-top: 15px;
+                text-align: center;
+            }
+        }
+        
+        /* Tablet Styles */
+        @media (max-width: 992px) {
+            .service-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Small Mobile Styles */
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .stat {
+                min-width: 100px;
+            }
+        }
+        
+        /* Performance - Réduire les animations si demandé */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Classes pour détection mobile via JS */
+        .mobile-device .cursor,
+        .mobile-device .cursor-follower {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -1348,12 +1480,12 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <div class="logo">
-                    <img src="src/img/cip_logo.jpeg" alt="CIP SARLU">
+                    <img src="src/img/cip_logo.jpeg" alt="CIP SARLU Logo" loading="lazy">
                 </div>
                 <div class="logo-text">CIP SARLU</div>
             </a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Menu navigation">
                 <i class="fas fa-bars"></i>
             </button>
             
@@ -1447,7 +1579,10 @@
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="about-image-wrapper" data-aos="fade-right">
                         <div class="about-image-main">
-                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CIP SARLU" class="img-fluid">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="CIP SARLA Construction" 
+                                 class="img-fluid"
+                                 loading="lazy">
                         </div>
                         <div class="about-image-float">
                             <h3>15+</h3>
@@ -1527,7 +1662,10 @@
                         <!-- Service 1 -->
                         <div class="service-card">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Construction BTP" class="img-fluid">
+                                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                     alt="Construction BTP" 
+                                     class="img-fluid"
+                                     loading="lazy">
                             </div>
                             <div class="service-content">
                                 <div class="service-number">01</div>
@@ -1561,7 +1699,10 @@
                         <!-- Service 2 -->
                         <div class="service-card">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Installation Solaire" class="img-fluid">
+                                <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                     alt="Installation Solaire" 
+                                     class="img-fluid"
+                                     loading="lazy">
                             </div>
                             <div class="service-content">
                                 <div class="service-number">02</div>
@@ -1595,7 +1736,10 @@
                         <!-- Service 3 -->
                         <div class="service-card">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Commerce Général" class="img-fluid">
+                                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                     alt="Commerce Général" 
+                                     class="img-fluid"
+                                     loading="lazy">
                             </div>
                             <div class="service-content">
                                 <div class="service-number">03</div>
@@ -1629,7 +1773,10 @@
                         <!-- Service 4 -->
                         <div class="service-card">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Ingénierie Électrique" class="img-fluid">
+                                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                     alt="Ingénierie Électrique" 
+                                     class="img-fluid"
+                                     loading="lazy">
                             </div>
                             <div class="service-content">
                                 <div class="service-number">04</div>
@@ -1663,7 +1810,10 @@
                         <!-- Service 5 -->
                         <div class="service-card">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solutions Multi-Techniques" class="img-fluid">
+                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                     alt="Solutions Multi-Techniques" 
+                                     class="img-fluid"
+                                     loading="lazy">
                             </div>
                             <div class="service-content">
                                 <div class="service-number">05</div>
@@ -1697,7 +1847,10 @@
                         <!-- Service 6 -->
                         <div class="service-card">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Industrie Minière" class="img-fluid">
+                                <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                     alt="Industrie Minière" 
+                                     class="img-fluid"
+                                     loading="lazy">
                             </div>
                             <div class="service-content">
                                 <div class="service-number">06</div>
@@ -1731,11 +1884,11 @@
                 </div>
                 
                 <div class="carousel-nav">
-                    <button class="carousel-btn" id="prevBtn">
+                    <button class="carousel-btn" id="prevBtn" aria-label="Slide précédent">
                         <i class="fas fa-chevron-left"></i>
                     </button>
                     <div class="carousel-indicators" id="indicators"></div>
-                    <button class="carousel-btn" id="nextBtn">
+                    <button class="carousel-btn" id="nextBtn" aria-label="Slide suivant">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
@@ -1759,7 +1912,10 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bibliothèque Kankan" class="project-image img-fluid">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Bibliothèque Kankan" 
+                             class="project-image img-fluid"
+                             loading="lazy">
                         <div class="project-overlay">
                             <div class="project-category">BÂTIMENT PUBLIC</div>
                             <h3 class="project-title">Bibliothèque Municipale de Kankan</h3>
@@ -1774,7 +1930,10 @@
                 
                 <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Immeuble R+2" class="project-image img-fluid">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Immeuble R+2" 
+                             class="project-image img-fluid"
+                             loading="lazy">
                         <div class="project-overlay">
                             <div class="project-category">RÉSIDENTIEL</div>
                             <h3 class="project-title">Immeuble R+2 Ansoumaniah</h3>
@@ -1789,7 +1948,10 @@
                 
                 <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rénovation" class="project-image img-fluid">
+                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Rénovation" 
+                             class="project-image img-fluid"
+                             loading="lazy">
                         <div class="project-overlay">
                             <div class="project-category">RÉNOVATION</div>
                             <h3 class="project-title">Résidence Privée Nongo</h3>
@@ -1820,7 +1982,7 @@
                 </p>
                 <div class="testimonial-author">
                     <div class="author-image">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Direction" class="img-fluid">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Direction CIP SARLU" class="img-fluid" loading="lazy">
                     </div>
                     <div class="author-info">
                         <h4>Direction CIP SARLU</h4>
@@ -1880,18 +2042,20 @@
                 </div>
                 
                 <div class="col-lg-7">
-                    <form class="contact-form" data-aos="fade-left">
+                    <form class="contact-form" data-aos="fade-left" id="contactForm">
                         <div class="row mb-3">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Nom Complet</label>
-                                    <input type="text" id="name" class="form-control" placeholder="Votre nom">
+                                    <label for="name" class="form-label">Nom Complet *</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Votre nom" required>
+                                    <div class="form-feedback">Veuillez entrer votre nom complet</div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" id="email" class="form-control" placeholder="votre@email.com">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" id="email" class="form-control" placeholder="votre@email.com" required>
+                                    <div class="form-feedback">Veuillez entrer une adresse email valide</div>
                                 </div>
                             </div>
                         </div>
@@ -1899,14 +2063,16 @@
                         <div class="row mb-3">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <div class="form-group">
-                                    <label for="phone" class="form-label">Téléphone</label>
-                                    <input type="tel" id="phone" class="form-control" placeholder="+224 XXX XX XX XX">
+                                    <label for="phone" class="form-label">Téléphone *</label>
+                                    <input type="tel" id="phone" class="form-control" placeholder="+224 XXX XX XX XX" required>
+                                    <div class="form-feedback">Veuillez entrer un numéro de téléphone valide</div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="service" class="form-label">Service</label>
-                                    <select id="service" class="form-control">
+                                    <label for="service" class="form-label">Service *</label>
+                                    <select id="service" class="form-control" required>
+                                        <option value="">Sélectionnez un service</option>
                                         <option>Construction / BTP</option>
                                         <option>Énergie Solaire</option>
                                         <option>Commerce Général</option>
@@ -1914,13 +2080,15 @@
                                         <option>Solutions Multi-Techniques</option>
                                         <option>Industrie Minière</option>
                                     </select>
+                                    <div class="form-feedback">Veuillez sélectionner un service</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="form-group mb-4">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" class="form-control" placeholder="Décrivez votre projet..." rows="4"></textarea>
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea id="message" class="form-control" placeholder="Décrivez votre projet..." rows="4" required></textarea>
+                            <div class="form-feedback">Veuillez entrer votre message</div>
                         </div>
                         
                         <button type="submit" class="btn-primary w-100">
@@ -1945,16 +2113,16 @@
                             l'énergie renouvelable et l'expertise BTP. Excellence garantie.
                         </p>
                         <div class="social-links">
-                            <a href="#" class="social-link">
+                            <a href="#" class="social-link" aria-label="Facebook">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="#" class="social-link">
+                            <a href="#" class="social-link" aria-label="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="#" class="social-link">
+                            <a href="#" class="social-link" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="#" class="social-link">
+                            <a href="#" class="social-link" aria-label="Twitter">
                                 <i class="fab fa-twitter"></i>
                             </a>
                         </div>
@@ -1978,11 +2146,11 @@
                     <div class="footer-col">
                         <h4>Services</h4>
                         <ul class="footer-links">
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Construction BTP</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Énergie Solaire</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Commerce Général</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Ingénierie Électrique</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Industrie Minière</a></li>
+                            <li><a href="#services"><i class="fas fa-chevron-right"></i> Construction BTP</a></li>
+                            <li><a href="#services"><i class="fas fa-chevron-right"></i> Énergie Solaire</a></li>
+                            <li><a href="#services"><i class="fas fa-chevron-right"></i> Commerce Général</a></li>
+                            <li><a href="#services"><i class="fas fa-chevron-right"></i> Ingénierie Électrique</a></li>
+                            <li><a href="#services"><i class="fas fa-chevron-right"></i> Industrie Minière</a></li>
                         </ul>
                     </div>
                 </div>
@@ -2008,7 +2176,7 @@
     </footer>
     
     <!-- Scroll to Top -->
-    <div class="scroll-top" id="scrollTop">
+    <div class="scroll-top" id="scrollTop" aria-label="Retour en haut">
         <i class="fas fa-arrow-up"></i>
     </div>
     
@@ -2022,7 +2190,10 @@
         AOS.init({
             duration: 1000,
             once: true,
-            offset: 100
+            offset: 100,
+            disable: function() {
+                return window.innerWidth <= 768;
+            }
         });
         
         // ============ PRELOADER ============
@@ -2032,19 +2203,44 @@
             }, 1000);
         });
         
+        // ============ DÉTECTION MOBILE ============
+        const isMobile = () => window.innerWidth <= 768;
+        
         // ============ CUSTOM CURSOR ============
         const cursor = document.querySelector('.cursor');
         const cursorFollower = document.querySelector('.cursor-follower');
         
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+        if (!isMobile()) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                
+                setTimeout(() => {
+                    cursorFollower.style.left = e.clientX + 'px';
+                    cursorFollower.style.top = e.clientY + 'px';
+                }, 100);
+            });
             
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX + 'px';
-                cursorFollower.style.top = e.clientY + 'px';
-            }, 100);
-        });
+            // Ajouter des effets au survol
+            document.querySelectorAll('a, button, .project-card, .service-card').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                    cursor.style.backgroundColor = 'rgba(41, 219, 25, 0.1)';
+                    cursorFollower.style.transform = 'translate(-50%, -50%) scale(1.2)';
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                    cursor.style.backgroundColor = 'transparent';
+                    cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+                });
+            });
+        } else {
+            // Désactiver le curseur sur mobile
+            cursor.style.display = 'none';
+            cursorFollower.style.display = 'none';
+            document.body.classList.add('mobile-device');
+        }
         
         // ============ PARTICLES ============
         const particlesContainer = document.getElementById('particles');
@@ -2082,6 +2278,7 @@
             const indicator = document.createElement('button');
             indicator.className = 'indicator';
             if (i === 0) indicator.classList.add('active');
+            indicator.setAttribute('aria-label', `Aller au slide ${i + 1}`);
             indicator.addEventListener('click', () => goToSlide(i));
             indicatorsContainer.appendChild(indicator);
         }
@@ -2092,6 +2289,7 @@
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
             indicators.forEach((indicator, index) => {
                 indicator.classList.toggle('active', index === currentSlide);
+                indicator.setAttribute('aria-current', index === currentSlide ? 'true' : 'false');
             });
         }
         
@@ -2113,16 +2311,49 @@
         nextBtn.addEventListener('click', nextSlide);
         prevBtn.addEventListener('click', prevSlide);
         
-        // Auto-play
-        let autoPlay = setInterval(nextSlide, 6000);
+        // Auto-play avec intervalle différent selon le device
+        let autoPlayInterval = isMobile() ? 8000 : 6000;
+        let autoPlay = setInterval(nextSlide, autoPlayInterval);
         
-        document.querySelector('.carousel-wrapper').addEventListener('mouseenter', () => {
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        carouselWrapper.addEventListener('mouseenter', () => {
             clearInterval(autoPlay);
         });
         
-        document.querySelector('.carousel-wrapper').addEventListener('mouseleave', () => {
-            autoPlay = setInterval(nextSlide, 6000);
+        carouselWrapper.addEventListener('mouseleave', () => {
+            clearInterval(autoPlay);
+            autoPlay = setInterval(nextSlide, autoPlayInterval);
         });
+        
+        // Swipe tactile pour mobile
+        if (isMobile()) {
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                clearInterval(autoPlay);
+            });
+            
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                autoPlay = setInterval(nextSlide, autoPlayInterval);
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+            }
+        }
         
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
@@ -2146,23 +2377,173 @@
         });
         
         // ============ FORM SUBMISSION ============
-        const contactForm = document.querySelector('.contact-form');
+        const contactForm = document.getElementById('contactForm');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        
+        // Expressions régulières pour validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[+\d\s\-\(\)]{10,}$/;
+        
+        // Validation en temps réel
+        emailInput.addEventListener('input', () => {
+            if (emailRegex.test(emailInput.value)) {
+                emailInput.style.borderColor = '#28a745';
+            } else {
+                emailInput.style.borderColor = '#dc3545';
+            }
+        });
+        
+        phoneInput.addEventListener('input', () => {
+            if (phoneRegex.test(phoneInput.value)) {
+                phoneInput.style.borderColor = '#28a745';
+            } else {
+                phoneInput.style.borderColor = '#dc3545';
+            }
+        });
+        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Basic form validation
+            // Validation complète
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
             const message = document.getElementById('message').value;
             
-            if (!name || !email || !message) {
-                alert('Veuillez remplir tous les champs obligatoires.');
+            let isValid = true;
+            
+            // Validation des champs
+            if (!name.trim()) {
+                document.getElementById('name').style.borderColor = '#dc3545';
+                isValid = false;
+            }
+            
+            if (!emailRegex.test(email)) {
+                emailInput.style.borderColor = '#dc3545';
+                isValid = false;
+            }
+            
+            if (!phoneRegex.test(phone)) {
+                phoneInput.style.borderColor = '#dc3545';
+                isValid = false;
+            }
+            
+            if (!service) {
+                document.getElementById('service').style.borderColor = '#dc3545';
+                isValid = false;
+            }
+            
+            if (!message.trim()) {
+                document.getElementById('message').style.borderColor = '#dc3545';
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                alert('Veuillez corriger les erreurs dans le formulaire.');
                 return;
             }
             
-            // In a real application, you would send the form data to a server here
-            alert('Merci ! Votre message a été envoyé. Nous vous contacterons bientôt.');
-            contactForm.reset();
+            // Simuler l'envoi du formulaire
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                // Ici, vous ajouteriez le code pour envoyer les données au serveur
+                // Exemple avec fetch():
+                // fetch('votre-script.php', {
+                //     method: 'POST',
+                //     body: new FormData(contactForm)
+                // })
+                
+                alert('Merci ! Votre message a été envoyé. Nous vous contacterons bientôt.');
+                contactForm.reset();
+                
+                // Réinitialiser les styles de validation
+                document.querySelectorAll('.form-control').forEach(input => {
+                    input.style.borderColor = '';
+                });
+                
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+        
+        // ============ GESTION DES IMAGES EN ERREUR ============
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = function() {
+                this.style.display = 'none';
+                const parent = this.parentElement;
+                if (parent.classList.contains('service-image') || 
+                    parent.classList.contains('project-image') ||
+                    parent.classList.contains('about-image-main')) {
+                    
+                    parent.style.background = 'linear-gradient(135deg, var(--primary-green), var(--primary-blue))';
+                    parent.style.display = 'flex';
+                    parent.style.alignItems = 'center';
+                    parent.style.justifyContent = 'center';
+                    parent.style.color = 'white';
+                    parent.style.fontWeight = 'bold';
+                    parent.style.textAlign = 'center';
+                    parent.style.padding = '20px';
+                    
+                    if (parent.classList.contains('service-image')) {
+                        parent.innerHTML = '<div>Image non disponible<br><small>Service CIP SARLU</small></div>';
+                    } else if (parent.classList.contains('project-image')) {
+                        parent.innerHTML = '<div>Image non disponible<br><small>Projet CIP SARLU</small></div>';
+                    } else {
+                        parent.innerHTML = '<div>Image non disponible<br><small>CIP SARLU</small></div>';
+                    }
+                }
+            };
+        });
+        
+        // ============ SMOOTH SCROLL POUR ANCRES ============
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fermer le menu mobile si ouvert
+                    if (isMobile()) {
+                        const navbarCollapse = document.getElementById('navbarNav');
+                        if (navbarCollapse.classList.contains('show')) {
+                            bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                        }
+                    }
+                }
+            });
+        });
+        
+        // ============ OPTIMISATION POUR LE REDIMENSIONNEMENT ============
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // Réinitialiser le carousel si nécessaire
+                updateCarousel();
+                
+                // Ajuster l'intervalle d'autoplay
+                clearInterval(autoPlay);
+                autoPlayInterval = isMobile() ? 8000 : 6000;
+                autoPlay = setInterval(nextSlide, autoPlayInterval);
+            }, 250);
         });
     </script>
 </body>

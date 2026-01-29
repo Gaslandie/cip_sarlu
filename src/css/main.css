@@ -2160,3 +2160,491 @@
         font-size: 13px;
     }
 }
+
+/* ============================================================================
+   EXPERTISES PAGE STYLES
+   ============================================================================ */
+
+/* ============ CATEGORY FILTER ============ */
+.category-filter {
+    padding: 30px 0;
+}
+
+.category-btn {
+    padding: 12px 25px;
+    background: rgba(41, 219, 25, 0.1);
+    border: 2px solid rgba(41, 219, 25, 0.3);
+    border-radius: 50px;
+    color: var(--primary-green);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.section-light .category-btn {
+    background: rgba(41, 219, 25, 0.08);
+    color: #333;
+    border-color: rgba(41, 219, 25, 0.2);
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+    color: white !important;
+    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(41, 219, 25, 0.3);
+}
+
+/* ============ DETAILED EXPERTISE CARDS ============ */
+.expertise-card.detailed {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-dark .expertise-card.detailed {
+    background: var(--dark-blue);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.expertise-card.detailed:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 60px rgba(41, 219, 25, 0.2);
+}
+
+.expertise-card-header {
+    padding: 30px 30px 20px;
+    position: relative;
+}
+
+.expertise-card.detailed .expertise-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(41, 219, 25, 0.3);
+}
+
+.expertise-badge {
+    display: inline-block;
+    padding: 6px 15px;
+    background: rgba(41, 219, 25, 0.1);
+    border: 1px solid rgba(41, 219, 25, 0.3);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.expertise-card-body {
+    padding: 0 30px 20px;
+    flex-grow: 1;
+}
+
+.expertise-card-body h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section-light .expertise-card-body h3 {
+    color: #000;
+}
+
+.expertise-description {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.section-dark .expertise-description {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.expertise-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.feature-item i {
+    color: var(--primary-green);
+    font-size: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.section-light .feature-item span {
+    color: #444;
+}
+
+.section-dark .feature-item span {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.expertise-card-footer {
+    padding: 25px 30px 30px;
+    border-top: 1px solid rgba(41, 219, 25, 0.1);
+}
+
+.expertise-card-footer .btn-primary {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ============ PROCESS STEPS ============ */
+.process-step {
+    text-align: center;
+    padding: 40px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(41, 219, 25, 0.2);
+    border-radius: 20px;
+    transition: all 0.3s;
+    height: 100%;
+}
+
+.process-step:hover {
+    background: rgba(41, 219, 25, 0.1);
+    border-color: rgba(41, 219, 25, 0.5);
+    transform: translateY(-10px);
+}
+
+.step-number {
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 36px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(41, 219, 25, 0.3);
+}
+
+.process-step h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.process-step p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============ ADVANTAGES LIST ============ */
+.advantages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.advantage-item {
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s;
+}
+
+.advantage-item:hover {
+    background: rgba(41, 219, 25, 0.1);
+    transform: translateX(10px);
+}
+
+.advantage-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 10px 30px rgba(41, 219, 25, 0.3);
+}
+
+.advantage-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.advantage-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.section-light .advantage-content p {
+    color: #666;
+}
+
+/* ============ STATS OVERVIEW ============ */
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(41, 219, 25, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s;
+}
+
+.section-light .stat-card {
+    background: rgba(41, 219, 25, 0.05);
+    border-color: rgba(41, 219, 25, 0.1);
+}
+
+.stat-card:hover {
+    background: rgba(41, 219, 25, 0.1);
+    border-color: rgba(41, 219, 25, 0.5);
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 10px 30px rgba(41, 219, 25, 0.3);
+}
+
+.stat-content h3 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-content p {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.section-light .stat-content p {
+    color: #666;
+}
+
+.section-dark .stat-content p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============ CTA SECTION ============ */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+    color: white;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cta-section p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+.cta-section .btn-primary {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+    color: white;
+}
+
+.cta-section .btn-primary:hover {
+    background: white;
+    color: #000;
+}
+
+.cta-section .btn-secondary {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.cta-section .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+/* ============ EXPERTISE ITEM ANIMATIONS ============ */
+.expertise-item {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease;
+}
+
+.expertise-item.hidden {
+    display: none;
+}
+
+/* ============ RESPONSIVE STYLES ============ */
+@media (max-width: 992px) {
+    .category-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+    
+    .stats-overview {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .breadcrumb-hero h1 {
+        font-size: 32px;
+    }
+    
+    .category-filter {
+        padding: 20px 0;
+    }
+    
+    .category-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    
+    .expertise-card-header,
+    .expertise-card-body,
+    .expertise-card-footer {
+        padding: 20px;
+    }
+    
+    .expertise-card.detailed .expertise-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+    
+    .process-step {
+        padding: 25px 15px;
+    }
+    
+    .step-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+    
+    .advantage-item {
+        padding: 20px;
+    }
+    
+    .advantage-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .cta-section h2 {
+        font-size: 28px;
+    }
+    
+    .cta-section .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .breadcrumb-hero h1 {
+        font-size: 24px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .expertise-card-body h3 {
+        font-size: 20px;
+    }
+    
+    .process-step h3 {
+        font-size: 18px;
+    }
+    
+    .advantage-content h3 {
+        font-size: 18px;
+    }
+    
+    .stat-content h3 {
+        font-size: 28px;
+    }
+}

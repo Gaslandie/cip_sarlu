@@ -1,3 +1,93 @@
+// ============ CHARGEMENT DES COMPOSANTS ============
+
+async function loadComponent(componentName) {
+    try {
+        // Déterminer le chemin correct selon la page
+        let basePath = 'src/components/';
+        
+        // Si on est dans pages/about.html - vérifier plusieurs façons
+        const pathname = window.location.pathname;
+        console.log(`📍 Chemin actuel: ${pathname}`);
+        
+        if (pathname.includes('/pages/') || pathname.endsWith('about.html')) {
+            basePath = '../src/components/';
+            console.log(`📍 Détecté: about.html - Utilisation du chemin relatif`);
+        } else {
+            console.log(`📍 Détecté: index.html - Utilisation du chemin direct`);
+        }
+        
+        const fullPath = `${basePath}${componentName}.html`;
+        console.log(`📦 Tentative de chargement: ${fullPath}`);
+        
+        const response = await fetch(fullPath);
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const html = await response.text();
+        console.log(`✅ Composant chargé avec succès: ${componentName}`);
+        return html;
+    } catch (error) {
+        console.error(`❌ Erreur de chargement du composant ${componentName}:`, error);
+        console.error(`   URL tentée: ${basePath}${componentName}.html`);
+        return null;
+    }
+}
+
+async function loadAllComponents() {
+    console.log('🔄 Début du chargement des composants...');
+    
+    try {
+        // 1. Charger et insérer le Preloader
+        const preloaderHtml = await loadComponent('preloader');
+        if (preloaderHtml) {
+            const preloaderContainer = document.getElementById('preloader-container');
+            if (preloaderContainer) {
+                preloaderContainer.innerHTML = preloaderHtml;
+                console.log('✅ Preloader inséré dans #preloader-container');
+            } else {
+                console.warn('⚠️ #preloader-container non trouvé');
+            }
+        } else {
+            console.warn('⚠️ Preloader HTML non chargé');
+        }
+        
+        // 2. Charger et insérer la Navbar
+        const navbarHtml = await loadComponent('navbar');
+        if (navbarHtml) {
+            const navbarContainer = document.getElementById('navbar-container');
+            if (navbarContainer) {
+                navbarContainer.innerHTML = navbarHtml;
+                console.log('✅ Navbar insérée dans #navbar-container');
+            } else {
+                console.warn('⚠️ #navbar-container non trouvé');
+            }
+        } else {
+            console.warn('⚠️ Navbar HTML non chargé');
+        }
+        
+        // 3. Charger et insérer le Footer
+        const footerHtml = await loadComponent('footer');
+        if (footerHtml) {
+            const footerContainer = document.getElementById('footer-container');
+            if (footerContainer) {
+                footerContainer.innerHTML = footerHtml;
+                console.log('✅ Footer inséré dans #footer-container');
+            } else {
+                console.warn('⚠️ #footer-container non trouvé');
+            }
+        } else {
+            console.warn('⚠️ Footer HTML non chargé');
+        }
+        
+        console.log('✅ Tous les composants ont été traités');
+        return true;
+    } catch (error) {
+        console.error('❌ Erreur globale lors du chargement:', error);
+        return false;
+    }
+}
+
 // ============ FONCTIONS UTILITAIRES ============
 
 function isMobile() {
@@ -7,15 +97,31 @@ function isMobile() {
 // ============ INITIALISATION DE L'APPLICATION ============
 
 async function initializeApp() {
-    console.log('Initialisation de l\'application CIP SARLU...');
+    console.log('🚀 Initialisation de l\'application CIP SARLU...');
+    console.log('📍 URL actuelle:', window.location.href);
+    console.log('📍 Pathname:', window.location.pathname);
+    
+    // 0. Charger les composants D'ABORD
+    console.log('\n--- ÉTAPE 1: Chargement des composants ---');
+    await loadAllComponents();
+    
+    // Attendre un peu pour que le DOM soit à jour
+    await new Promise(resolve => setTimeout(resolve, 200));
+    
+    console.log('\n--- ÉTAPE 2: Initialisation des fonctionnalités ---');
     
     // 1. Initialiser AOS (Animate On Scroll)
-    AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100,
-        disable: isMobile()
-    });
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            disable: isMobile()
+        });
+        console.log('✅ AOS initialisé');
+    } else {
+        console.warn('⚠️ AOS non disponible');
+    }
     
     // 2. Initialiser toutes les fonctionnalités
     initializePreloader();
@@ -27,21 +133,38 @@ async function initializeApp() {
     initializeScrollTop();
     initializeEventListeners();
     
-    console.log('Application initialisée avec succès!');
+    console.log('\n✅ Application complètement initialisée!');
 }
 
 // ============ PRÉLOADER ============
 
 function initializePreloader() {
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            const preloader = document.querySelector('.preloader');
-            if (preloader) {
-                preloader.classList.add('hidden');
+    const hidePreloader = () => {
+        const preloader = document.querySelector('.preloader');
+        if (preloader) {
+            preloader.classList.add('hidden');
+            setTimeout(() => {
                 preloader.style.display = 'none';
-            }
-        }, 1000);
+                console.log('✅ Preloader caché');
+            }, 500);
+        } else {
+            console.warn('⚠️ .preloader non trouvé');
+        }
+    };
+    
+    // Cacher le preloader après le chargement
+    window.addEventListener('load', () => {
+        setTimeout(hidePreloader, 800);
     });
+    
+    // Sécurité: cacher le preloader après 5 secondes même s'il y a une erreur
+    setTimeout(() => {
+        const preloader = document.querySelector('.preloader');
+        if (preloader && preloader.style.display !== 'none') {
+            console.warn('⚠️ Forçage du masquage du preloader après 5 secondes');
+            hidePreloader();
+        }
+    }, 5000);
 }
 
 // ============ CURSEUR PERSONNALISÉ ============
@@ -50,21 +173,22 @@ function initializeCustomCursor() {
     const cursor = document.querySelector('.cursor');
     const cursorFollower = document.querySelector('.cursor-follower');
     
-    // Vérifier si les éléments de curseur existent et si ce n'est pas mobile
-    if (!isMobile() && cursor && cursorFollower) {
-        // Suivre le mouvement de la souris
+    if (!cursor || !cursorFollower) {
+        console.warn('⚠️ Curseur personnalisé non trouvé');
+        return;
+    }
+    
+    if (!isMobile()) {
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
             
-            // Délai pour l'effet de suivi
             setTimeout(() => {
                 cursorFollower.style.left = e.clientX + 'px';
                 cursorFollower.style.top = e.clientY + 'px';
             }, 100);
         });
         
-        // Effet au survol des éléments interactifs
         document.querySelectorAll('a, button, .project-card, .service-card').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
@@ -78,11 +202,11 @@ function initializeCustomCursor() {
                 cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
             });
         });
-    } else if (cursor && cursorFollower) {
-        // Masquer le curseur personnalisé sur mobile
+        console.log('✅ Curseur personnalisé activé');
+    } else {
         cursor.style.display = 'none';
         cursorFollower.style.display = 'none';
-        document.body.classList.add('mobile-device');
+        console.log('✅ Curseur désactivé (mobile)');
     }
 }
 
@@ -91,9 +215,11 @@ function initializeCustomCursor() {
 function initializeParticles() {
     const particlesContainer = document.getElementById('particles');
     
-    if (!particlesContainer) return;
+    if (!particlesContainer) {
+        console.warn('⚠️ Conteneur de particules non trouvé');
+        return;
+    }
     
-    // Créer 30 particules animées
     for (let i = 0; i < 30; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
@@ -103,6 +229,8 @@ function initializeParticles() {
         particle.style.animationDelay = Math.random() * 15 + 's';
         particlesContainer.appendChild(particle);
     }
+    
+    console.log('✅ Particules créées (30)');
 }
 
 // ============ NAVIGATION (EFFET SCROLL) ============
@@ -110,7 +238,10 @@ function initializeParticles() {
 function initializeNavigation() {
     const nav = document.getElementById('nav');
     
-    if (!nav) return;
+    if (!nav) {
+        console.warn('⚠️ Navbar (#nav) non trouvée - vérifiez que navbar.html contient id="nav"');
+        return;
+    }
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 100) {
@@ -119,6 +250,8 @@ function initializeNavigation() {
             nav.classList.remove('scrolled');
         }
     });
+    
+    console.log('✅ Navigation scroll activée');
 }
 
 // ============ CARROUSEL DE SERVICES ============
@@ -129,14 +262,21 @@ let autoPlayInterval;
 function initializeCarousel() {
     const track = document.getElementById('carouselTrack');
     
-    if (!track) return;
+    if (!track) {
+        console.warn('⚠️ Carrousel non trouvé');
+        return;
+    }
     
     const slides = document.querySelectorAll('.service-card');
     const totalSlides = slides.length;
     
-    if (totalSlides === 0) return;
+    console.log(`📊 Carrousel: ${totalSlides} slides trouvés`);
     
-    // === CRÉER LES INDICATEURS ===
+    if (totalSlides === 0) {
+        console.warn('⚠️ Aucune slide trouvée');
+        return;
+    }
+    
     const indicatorsContainer = document.getElementById('indicators');
     if (indicatorsContainer) {
         indicatorsContainer.innerHTML = '';
@@ -151,26 +291,20 @@ function initializeCarousel() {
         }
     }
     
-    // === BOUTONS DE NAVIGATION ===
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     
     if (prevBtn) prevBtn.addEventListener('click', prevSlide);
     if (nextBtn) nextBtn.addEventListener('click', nextSlide);
     
-    // === MISE À JOUR INITIALE ===
     updateCarousel();
-    
-    // === AUTO-PLAY ===
     startAutoPlay();
     
-    // === PAUSE/REPRISE AU SURVOL ===
     const carouselWrapper = document.querySelector('.carousel-wrapper');
     if (carouselWrapper) {
         carouselWrapper.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
         carouselWrapper.addEventListener('mouseleave', startAutoPlay);
         
-        // === GESTION DU SWIPE (MOBILE) ===
         if (isMobile()) {
             let touchStartX = 0;
             let touchEndX = 0;
@@ -201,11 +335,12 @@ function initializeCarousel() {
         }
     }
     
-    // === NAVIGATION AU CLAVIER ===
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') prevSlide();
         if (e.key === 'ArrowRight') nextSlide();
     });
+    
+    console.log('✅ Carrousel initialisé');
 }
 
 function updateCarousel() {
@@ -248,7 +383,7 @@ function prevSlide() {
 
 function startAutoPlay() {
     clearInterval(autoPlayInterval);
-    const interval = isMobile() ? 8000 : 6000; // 8s sur mobile, 6s sur desktop
+    const interval = isMobile() ? 8000 : 6000;
     autoPlayInterval = setInterval(nextSlide, interval);
 }
 
@@ -257,16 +392,17 @@ function startAutoPlay() {
 function initializeForm() {
     const contactForm = document.getElementById('contactForm');
     
-    if (!contactForm) return;
+    if (!contactForm) {
+        console.warn('⚠️ Formulaire de contact non trouvé');
+        return;
+    }
     
-    // === REGEX DE VALIDATION ===
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^[+\d\s\-\(\)]{10,}$/;
     
     const emailInput = document.getElementById('email');
     const phoneInput = document.getElementById('phone');
     
-    // === VALIDATION EN TEMPS RÉEL ===
     if (emailInput) {
         emailInput.addEventListener('input', function() {
             this.style.borderColor = emailRegex.test(this.value) ? '#28a745' : '#dc3545';
@@ -279,18 +415,15 @@ function initializeForm() {
         });
     }
     
-    // === SOUMISSION DU FORMULAIRE ===
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Récupérer les valeurs
         const name = document.getElementById('name')?.value?.trim() || '';
         const email = document.getElementById('email')?.value || '';
         const phone = document.getElementById('phone')?.value || '';
         const service = document.getElementById('service')?.value || '';
         const message = document.getElementById('message')?.value?.trim() || '';
         
-        // === VALIDATION ===
         let isValid = true;
         const validations = [
             { id: 'name', valid: name.length > 0, required: true },
@@ -300,7 +433,6 @@ function initializeForm() {
             { id: 'message', valid: message.length > 0, required: true }
         ];
         
-        // Appliquer la validation visuelle
         validations.forEach(validation => {
             const element = document.getElementById(validation.id);
             if (element) {
@@ -314,7 +446,6 @@ function initializeForm() {
             return;
         }
         
-        // === SIMULATION D'ENVOI ===
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         
@@ -322,25 +453,22 @@ function initializeForm() {
         submitBtn.disabled = true;
         
         setTimeout(() => {
-            // Message de succès
             alert('✅ Merci ! Votre message a été envoyé avec succès.\nNous vous contacterons très bientôt.');
             
-            // Réinitialiser le formulaire
             contactForm.reset();
             
-            // Réinitialiser les bordures
             document.querySelectorAll('.form-control').forEach(input => {
                 input.style.borderColor = '';
             });
             
-            // Restaurer le bouton
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
             
-            // Optionnel : Scroller vers le haut
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }, 1500);
     });
+    
+    console.log('✅ Formulaire initialisé');
 }
 
 // ============ BOUTON SCROLL TO TOP ============
@@ -348,9 +476,11 @@ function initializeForm() {
 function initializeScrollTop() {
     const scrollTop = document.getElementById('scrollTop');
     
-    if (!scrollTop) return;
+    if (!scrollTop) {
+        console.warn('⚠️ Bouton scroll to top non trouvé');
+        return;
+    }
     
-    // Afficher/masquer le bouton selon le scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 500) {
             scrollTop.classList.add('visible');
@@ -359,19 +489,19 @@ function initializeScrollTop() {
         }
     });
     
-    // Action au clic
     scrollTop.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
+    
+    console.log('✅ Scroll to top initialisé');
 }
 
 // ============ ÉVÉNEMENTS GÉNÉRAUX ============
 
 function initializeEventListeners() {
-    // === SCROLL FLUIDE POUR ANCRES ===
     document.addEventListener('click', function(e) {
         const anchor = e.target.closest('a[href^="#"]');
         
@@ -383,7 +513,6 @@ function initializeEventListeners() {
         if (targetElement) {
             e.preventDefault();
             
-            // Calculer la position en tenant compte de la navbar
             const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
             const targetPosition = targetElement.offsetTop - navbarHeight - 20;
             
@@ -392,7 +521,6 @@ function initializeEventListeners() {
                 behavior: 'smooth'
             });
             
-            // Fermer le menu mobile si ouvert
             if (isMobile()) {
                 const navbarCollapse = document.getElementById('navbarNav');
                 if (navbarCollapse && navbarCollapse.classList.contains('show')) {
@@ -405,7 +533,6 @@ function initializeEventListeners() {
         }
     });
     
-    // === GESTION DES IMAGES EN ERREUR ===
     document.querySelectorAll('img').forEach(img => {
         img.onerror = function() {
             this.style.display = 'none';
@@ -444,7 +571,6 @@ function initializeEventListeners() {
         };
     });
     
-    // === GESTION DU REDIMENSIONNEMENT ===
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
@@ -457,16 +583,23 @@ function initializeEventListeners() {
             }
         }, 250);
     });
+    
+    console.log('✅ Event listeners initialisés');
 }
 
 // ============ POINT D'ENTRÉE ============
 
-// Démarrer l'application quand le DOM est prêt
+console.log('\n' + '='.repeat(60));
+console.log('🚀 CIP SARLU - Démarrage de l\'application');
+console.log('='.repeat(60));
+
 if (document.readyState === 'loading') {
+    console.log('⏳ Document en cours de chargement...');
     document.addEventListener('DOMContentLoaded', () => {
+        console.log('✅ DOM Content Loaded');
         setTimeout(initializeApp, 100);
     });
 } else {
-    // Si le DOM est déjà chargé
+    console.log('✅ DOM déjà chargé');
     setTimeout(initializeApp, 100);
 }

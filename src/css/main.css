@@ -1527,6 +1527,7 @@
 
 .cta-nav:hover {
     opacity: 0.9;
+    color: #fff !important;
 }
 
 /* ============ BREADCRUMB HERO - CORRECTIF ============ */

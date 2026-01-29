@@ -161,8 +161,8 @@
  }
 
  .logo {
-     width: 60px;
-     height: 60px;
+     width: 80px;
+     height: 80px;
      background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
      border-radius: 12px;
      display: flex;
@@ -175,7 +175,7 @@
  }
 
  .logo:hover {
-     transform: translateY(-5px) rotate(5deg);
+     transform: scale(2);
      box-shadow: 0 15px 40px rgba(41, 219, 25, 0.5);
  }
 
@@ -441,7 +441,7 @@
  }
 
  .stat-label {
-     color: var(--gray);
+     color: white;
      font-size: 14px;
      font-weight: 600;
      text-transform: uppercase;
@@ -1661,7 +1661,7 @@
 
 .stat-label {
     font-size: 14px;
-    color: rgba(0, 0, 0, 0.6);
+    color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;

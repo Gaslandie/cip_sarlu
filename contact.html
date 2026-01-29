@@ -1,11 +1,529 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact CIP SARLU | Nous Contacter - Construction & BTP en Guinée</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Contactez CIP SARLU pour vos projets de construction, énergie solaire et BTP en Guinée. Nous répondons à toutes vos demandes.">
+    <meta name="keywords" content="contact, CIP SARLU, construction, BTP, énergie solaire, Guinée, devis, consultation">
+    <meta property="og:title" content="Contact CIP SARLU | Nous Contacter">
+    <meta property="og:description" content="Prenez contact avec nos experts pour discuter de votre projet.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../src/css/main.css">
 </head>
 <body>
+    <!-- PRELOADER PLACEHOLDER -->
+    <div id="preloader-container"></div>
+
+    <!-- NAVBAR PLACEHOLDER -->
+    <div id="navbar-container"></div>
+
+    <!-- ============ BREADCRUMB HERO ============ -->
+    <section class="breadcrumb-hero" id="top">
+        <div class="hero-bg"></div>
+        <div class="particles" id="particles"></div>
+        
+        <div class="container">
+            <div class="breadcrumb-content" data-aos="fade-up">
+                <h1>Nous Contacter</h1>
+                <p>Discutez de votre projet avec nos experts</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../index.html">Accueil</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ QUICK CONTACT INFO ============ -->
+    <section class="section-padding section-light bg-pattern" id="quick-contact">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Contact Info Card 1 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Notre Siège</h3>
+                        <p>MANEAH/PREF.COYAH</p>
+                        <p class="text-muted">Guinée</p>
+                    </div>
+                </div>
+
+                <!-- Contact Info Card 2 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Téléphone</h3>
+                        <p><a href="tel:+224623966278">(+224) 623 96 62 78</a></p>
+                        <p class="text-muted">Disponible 24/7</p>
+                    </div>
+                </div>
+
+                <!-- Contact Info Card 3 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:toureyari101@gmail.com">toureyari101@gmail.com</a></p>
+                        <p class="text-muted">Réponse sous 24h</p>
+                    </div>
+                </div>
+
+                <!-- Contact Info Card 4 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="contact-info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Heures d'Ouverture</h3>
+                        <p>Lun-Ven: 8h-17h</p>
+                        <p class="text-muted">Samedi: 8h-12h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT FORM & MAP ============ -->
+    <section class="section-padding section-dark bg-pattern" id="contact-form-section">
+        <div class="container">
+            <div class="row g-5 align-items-start">
+                <!-- Contact Form -->
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="contact-form-wrapper">
+                        <div class="form-header mb-4">
+                            <h2>Envoyez-Nous un Message</h2>
+                            <p>Remplissez le formulaire ci-dessous et nous vous répondrons au plus tôt</p>
+                        </div>
+
+                        <form id="contactForm" novalidate class="contact-form">
+                            <!-- Row 1: Name & Email -->
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <div class="form-group">
+                                        <label for="name" class="form-label">Nom Complet *</label>
+                                        <input type="text" id="name" class="form-control" placeholder="Votre nom complet" required>
+                                        <div class="form-feedback">Veuillez entrer votre nom complet</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email *</label>
+                                        <input type="email" id="email" class="form-control" placeholder="votre@email.com" required>
+                                        <div class="form-feedback">Veuillez entrer une adresse email valide</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row 2: Phone & Company -->
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <div class="form-group">
+                                        <label for="phone" class="form-label">Téléphone *</label>
+                                        <input type="tel" id="phone" class="form-control" placeholder="+224 XXX XX XX XX" required>
+                                        <div class="form-feedback">Veuillez entrer un numéro valide</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="company" class="form-label">Entreprise</label>
+                                        <input type="text" id="company" class="form-control" placeholder="Nom de votre entreprise">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row 3: Service & Subject -->
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <div class="form-group">
+                                        <label for="service" class="form-label">Service Intéressé *</label>
+                                        <select id="service" class="form-control" required>
+                                            <option value="">Sélectionnez un service</option>
+                                            <option>Construction / BTP</option>
+                                            <option>Énergie Solaire</option>
+                                            <option>Commerce Général</option>
+                                            <option>Ingénierie Électrique</option>
+                                            <option>Solutions Multi-Techniques</option>
+                                            <option>Industrie Minière</option>
+                                            <option>Autres</option>
+                                        </select>
+                                        <div class="form-feedback">Veuillez sélectionner un service</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="budget" class="form-label">Budget Estimé</label>
+                                        <select id="budget" class="form-control">
+                                            <option value="">Sélectionnez un budget</option>
+                                            <option>Moins de 10 millions GNF</option>
+                                            <option>10-50 millions GNF</option>
+                                            <option>50-100 millions GNF</option>
+                                            <option>100-500 millions GNF</option>
+                                            <option>Plus de 500 millions GNF</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Subject -->
+                            <div class="mb-4">
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">Sujet *</label>
+                                    <input type="text" id="subject" class="form-control" placeholder="Quel est le sujet de votre message ?" required>
+                                    <div class="form-feedback">Veuillez entrer un sujet</div>
+                                </div>
+                            </div>
+
+                            <!-- Message -->
+                            <div class="mb-4">
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Message *</label>
+                                    <textarea id="message" class="form-control" placeholder="Décrivez votre projet en détail..." rows="6" required></textarea>
+                                    <div class="form-feedback">Veuillez entrer votre message</div>
+                                </div>
+                            </div>
+
+                            <!-- Checkbox -->
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input type="checkbox" id="terms" class="form-check-input" required>
+                                    <label class="form-check-label" for="terms">
+                                        J'accepte les conditions d'utilisation et la politique de confidentialité
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn-primary w-100 btn-submit">
+                                <i class="fas fa-paper-plane"></i>
+                                Envoyer le Message
+                            </button>
+
+                            <!-- Success Message -->
+                            <div id="successMessage" class="alert alert-success mt-3" style="display: none;">
+                                <i class="fas fa-check-circle"></i>
+                                Merci ! Votre message a été envoyé avec succès. Nous vous contacterons très bientôt.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Sidebar - Additional Info -->
+                <div class="col-lg-5" data-aos="fade-left">
+                    <!-- Why Contact Card -->
+                    <div class="contact-sidebar-card mb-4">
+                        <h3><i class="fas fa-lightbulb"></i> Pourquoi Nous Contacter ?</h3>
+                        <ul>
+                            <li>Expertise professionnelle depuis 15+ ans</li>
+                            <li>Équipe multidisciplinaire qualifiée</li>
+                            <li>Solutions personnalisées et adaptées</li>
+                            <li>Respect des délais et du budget</li>
+                            <li>Suivi de projet 24/7</li>
+                            <li>Excellent taux de satisfaction (98%)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Services Card -->
+                    <div class="contact-sidebar-card mb-4">
+                        <h3><i class="fas fa-briefcase"></i> Nos Services</h3>
+                        <div class="services-grid">
+                            <div class="service-badge">Construction & BTP</div>
+                            <div class="service-badge">Énergie Solaire</div>
+                            <div class="service-badge">Ingénierie</div>
+                            <div class="service-badge">Commerce Général</div>
+                            <div class="service-badge">Solutions Techniques</div>
+                            <div class="service-badge">Industrie Minière</div>
+                        </div>
+                    </div>
+
+                    <!-- Expected Response Time -->
+                    <div class="contact-sidebar-card">
+                        <h3><i class="fas fa-hourglass"></i> Temps de Réponse</h3>
+                        <div class="response-time">
+                            <div class="time-item">
+                                <span class="time-label">Email</span>
+                                <span class="time-value">24-48 heures</span>
+                            </div>
+                            <div class="time-item">
+                                <span class="time-label">Téléphone</span>
+                                <span class="time-value">Immédiat</span>
+                            </div>
+                            <div class="time-item">
+                                <span class="time-label">Consultation</span>
+                                <span class="time-value">Sous demande</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ MAP SECTION ============ -->
+    <section class="section-padding section-light bg-pattern" id="map-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Localisation</span>
+                <h2 class="section-title">
+                    Notre <span class="gradient-text">Localisation</span>
+                </h2>
+            </div>
+
+            <div class="map-container" data-aos="fade-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.456789012345!2d-10.123456!3d9.567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z9JCXMDXiabz6w6AJ4oCXIDEw4oCX5LiUJzoyLjQzJzEwLjAi!5e0!3m2!1sfr!2sgn!4v1234567890123" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FAQ SECTION ============ -->
+    <section class="section-padding section-dark bg-pattern" id="faq-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Questions</span>
+                <h2 class="section-title">
+                    Questions <span class="gradient-text">Fréquentes</span>
+                </h2>
+                <p class="section-description">
+                    Trouvez les réponses à vos questions les plus courantes
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion accordion-flush" id="faqAccordion">
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Quels sont les délais de réalisation d'un projet ?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Les délais varient selon la nature du projet. Nous étudions chaque demande spécifiquement et proposons un calendrier détaillé. En général, les petits projets peuvent être complétés en 3-6 mois, tandis que les projets plus importants peuvent nécessiter 12-24 mois.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Comment obtenir un devis ?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Vous pouvez demander un devis en remplissant le formulaire de contact ci-dessus ou en nous appelant directement. Nous vous enverrons une proposition détaillée dans les 24-48 heures. Les devis sont gratuits et sans engagement.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Offrez-vous des services de maintenance après la construction ?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Oui ! Nous offrons des services de maintenance préventive et corrective pour tous nos projets. Cela comprend inspections régulières, réparations et optimisations. Un contrat de service peut être établi selon vos besoins.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 4 -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Travaillez-vous avec des budgets limités ?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Absolument ! Nous adaptons nos solutions à votre budget. Nous proposons plusieurs options et vous aidons à prioriser les éléments essentiels. Une première consultation gratuite peut vous aider à définir un budget réaliste.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 5 -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="500">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Pouvez-vous travailler à l'international ?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Oui, nous avons de l'expérience dans les projets internationaux. Nous pouvons coordonner des projets à travers l'Afrique de l'Ouest et au-delà. Contactez-nous pour discuter des détails spécifiques de votre projet.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 6 -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="600">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    Quelles sont vos références et certifications ?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    CIP SARLU est enregistrée auprès des autorités guinéennes (RCCM: GN.TCC.2024.B.12984, NIF: 857646228). Nous possédons les certifications ISO nécessaires et avons réalisé plus de 25 projets majeurs en Guinée. Référence disponible sur demande.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA SECTION ============ -->
+    <section class="section-padding section-light bg-pattern">
+        <div class="container">
+            <div class="cta-content text-center" data-aos="fade-up">
+                <h2>Prêt à Démarrer ?</h2>
+                <p>Ne tardez pas, contactez nos experts aujourd'hui pour transformer votre vision en réalité.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+224623966278" class="btn-primary">
+                        <i class="fas fa-phone"></i>
+                        Appeler Maintenant
+                    </a>
+                    <a href="#contactForm" class="btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Envoyer un Message
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-container"></div>
+
+    <!-- ============ SCRIPTS ============ -->
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Main Application Script -->
+    <script src="../src/js/main.js"></script>
     
+    <!-- Contact Form Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phoneRegex = /^[+\d\s\-\(\)]{10,}$/;
+
+            // Real-time validation
+            document.getElementById('email').addEventListener('input', function() {
+                this.style.borderColor = emailRegex.test(this.value) ? '#28a745' : '#dc3545';
+            });
+
+            document.getElementById('phone').addEventListener('input', function() {
+                this.style.borderColor = phoneRegex.test(this.value) ? '#28a745' : '#dc3545';
+            });
+
+            // Form submission
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Get form values
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const service = document.getElementById('service').value;
+                const subject = document.getElementById('subject').value.trim();
+                const message = document.getElementById('message').value.trim();
+                const terms = document.getElementById('terms').checked;
+
+                // Validate
+                let isValid = true;
+                const validations = [
+                    { id: 'name', valid: name.length > 0, required: true },
+                    { id: 'email', valid: emailRegex.test(email), required: true },
+                    { id: 'phone', valid: phoneRegex.test(phone), required: true },
+                    { id: 'service', valid: service.length > 0, required: true },
+                    { id: 'subject', valid: subject.length > 0, required: true },
+                    { id: 'message', valid: message.length > 0, required: true },
+                ];
+
+                validations.forEach(validation => {
+                    const element = document.getElementById(validation.id);
+                    if (element) {
+                        element.style.borderColor = validation.valid ? '#28a745' : '#dc3545';
+                        if (!validation.valid) isValid = false;
+                    }
+                });
+
+                if (!terms) {
+                    document.getElementById('terms').style.borderColor = '#dc3545';
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    alert('Veuillez corriger les erreurs dans le formulaire.');
+                    return;
+                }
+
+                // Simulate form submission
+                const submitBtn = contactForm.querySelector('.btn-submit');
+                const originalText = submitBtn.innerHTML;
+
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+
+                    // Reset input borders
+                    document.querySelectorAll('.form-control, .form-check-input').forEach(input => {
+                        input.style.borderColor = '';
+                    });
+
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                }, 1500);
+            });
+        });
+    </script>
 </body>
 </html>

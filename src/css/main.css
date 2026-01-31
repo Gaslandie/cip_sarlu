@@ -224,7 +224,7 @@
 }
 
 .top-bar-social a {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--primary-green);
     font-size: 0.9rem;
     transition: all 0.3s ease;
     width: 28px;
@@ -233,7 +233,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(41, 219, 25, 0.1);
 }
 
 .top-bar-social a:hover {

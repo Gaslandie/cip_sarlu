@@ -418,6 +418,9 @@ function initializeForm() {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // Ajouter la classe was-validated pour afficher les messages d'erreur
+        contactForm.classList.add('was-validated');
+        
         const name = document.getElementById('name')?.value?.trim() || '';
         const email = document.getElementById('email')?.value || '';
         const phone = document.getElementById('phone')?.value || '';
@@ -436,8 +439,14 @@ function initializeForm() {
         validations.forEach(validation => {
             const element = document.getElementById(validation.id);
             if (element) {
-                element.style.borderColor = validation.valid ? '#28a745' : '#dc3545';
-                if (!validation.valid) isValid = false;
+                if (validation.valid) {
+                    element.classList.remove('is-invalid');
+                    element.style.borderColor = '#28a745';
+                } else {
+                    element.classList.add('is-invalid');
+                    element.style.borderColor = '#dc3545';
+                    isValid = false;
+                }
             }
         });
         
@@ -469,9 +478,11 @@ function initializeForm() {
             }
             
             contactForm.reset();
+            contactForm.classList.remove('was-validated');
             
             document.querySelectorAll('.form-control').forEach(input => {
                 input.style.borderColor = '';
+                input.classList.remove('is-invalid');
             });
             
             submitBtn.innerHTML = originalText;

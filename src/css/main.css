@@ -10,6 +10,11 @@
      --white: #ffffff;
      --section-light: #f8fafc;
      --section-dark: #1a2332;
+     
+     /* Typographie */
+     --font-heading: 'Oswald', sans-serif;
+     --font-subheading: 'Raleway', sans-serif;
+     --font-body: 'Inter', sans-serif;
  }
 
  * {
@@ -26,7 +31,7 @@
  }
 
  body {
-     font-family: 'Poppins', sans-serif;
+     font-family: var(--font-body);
      color: var(--light);
      line-height: 1.7;
      overflow-x: hidden;
@@ -124,7 +129,7 @@
  }
 
  .preloader-logo {
-     font-family: 'Montserrat', sans-serif;
+     font-family: var(--font-heading);
      font-size: 72px;
      font-weight: 900;
      color: #fff;
@@ -420,7 +425,7 @@
  }
 
  .logo-text {
-     font-family: 'Montserrat', sans-serif;
+     font-family: var(--font-heading);
      font-size: 32px;
      font-weight: 900;
      color: #fff;
@@ -601,7 +606,7 @@
  }
 
  .hero h1 {
-     font-family: 'Montserrat', sans-serif;
+     font-family: var(--font-heading);
      font-size: 72px;
      font-weight: 900;
      line-height: 1.1;
@@ -838,7 +843,7 @@
  .section-title {
      font-size: 52px;
      font-weight: 900;
-     font-family: 'Montserrat', sans-serif;
+     font-family: var(--font-heading);
      margin-bottom: 20px;
      line-height: 1.2;
  }
@@ -926,7 +931,7 @@
      font-size: 36px;
      font-weight: 800;
      margin-bottom: 25px;
-     font-family: 'Montserrat', sans-serif;
+     font-family: var(--font-heading);
  }
 
  .about-content p {
@@ -1087,7 +1092,7 @@
      font-size: 42px;
      font-weight: 800;
      margin-bottom: 25px;
-     font-family: 'Montserrat', sans-serif;
+     font-family: var(--font-heading);
  }
 
  .service-content p {
@@ -1239,7 +1244,7 @@
      font-size: 24px;
      font-weight: 700;
      margin-bottom: 10px;
-     font-family: 'Montserrat', sans-serif;
+     font-family: var(--font-heading);
      color: white;
  }
 
@@ -1424,7 +1429,7 @@
      border: 1px solid rgba(41, 219, 25, 0.2);
      border-radius: 12px;
      font-size: 15px;
-     font-family: 'Poppins', sans-serif;
+     font-family: var(--font-body);
      transition: all 0.3s;
  }
 
@@ -1485,7 +1490,7 @@
  .footer-brand h3 {
      font-size: 28px;
      font-weight: 800;
-     font-family: 'Montserrat', sans-serif;
+     font-family: var(--font-heading);
      margin-bottom: 20px;
     background: var(--primary-green);
      -webkit-background-clip: text;
@@ -1529,7 +1534,7 @@
      font-size: 18px;
      font-weight: 700;
      margin-bottom: 25px;
-     font-family: 'Montserrat', sans-serif;
+     font-family: var(--font-heading);
  }
 
  .footer-links {
@@ -2028,7 +2033,7 @@
     font-size: 48px;
     font-weight: 900;
     margin-bottom: 15px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .breadcrumb-content p {
@@ -2123,7 +2128,7 @@
     font-weight: 900;
     color: #29db19;
     margin-bottom: 5px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .stat-label {
@@ -2140,7 +2145,7 @@
     font-weight: 900;
     margin-bottom: 20px;
     color: #000;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .about-content h3 {
@@ -2176,7 +2181,7 @@
     font-size: 28px;
     font-weight: 800;
     margin-bottom: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .vision-mission-card p {
@@ -2257,7 +2262,7 @@
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
     color: #000 !important;
 }
 
@@ -2321,7 +2326,7 @@
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 15px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .value-card p {
@@ -2459,7 +2464,7 @@
     font-size: 28px;
     font-weight: 800;
     margin-bottom: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
     color: #000;
 }
 
@@ -2481,7 +2486,7 @@
     font-size: 48px;
     font-weight: 900;
     margin-bottom: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
     color: #000;
 }
 
@@ -2727,7 +2732,7 @@
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 15px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .section-light .expertise-card-body h3 {
@@ -2830,7 +2835,7 @@
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 15px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .process-step p {
@@ -2879,7 +2884,7 @@
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 8px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .advantage-content p {
@@ -2973,7 +2978,7 @@
     font-size: 36px;
     font-weight: 800;
     margin-bottom: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .cta-section p {
@@ -3237,7 +3242,7 @@
     font-size: 24px;
     font-weight: 800;
     margin-bottom: 8px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .overlay-content p {
@@ -3282,7 +3287,7 @@
     font-weight: 800;
     color: #000;
     margin-bottom: 12px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
     line-height: 1.3;
 }
 
@@ -3340,7 +3345,7 @@
     font-weight: 900;
     color: #29db19;
     margin-bottom: 4px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .stat-label {
@@ -3387,7 +3392,7 @@
     font-weight: 900;
     color: #29db19;
     margin-bottom: 8px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .stats-content p {
@@ -3404,7 +3409,7 @@
     font-size: 42px;
     font-weight: 900;
     color: #29db19;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .no-percent::after {
@@ -3428,7 +3433,7 @@
     font-size: 24px;
     font-weight: 800;
     color: #000;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .modal-header .btn-close {
@@ -3448,7 +3453,7 @@
     margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .modal-body h6:first-of-type {
@@ -3501,7 +3506,7 @@
     font-weight: 900;
     margin-bottom: 15px;
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .cta-content p {
@@ -3738,7 +3743,7 @@
     font-weight: 800;
     margin-bottom: 12px;
     color: #000;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .contact-info-card p {
@@ -3780,7 +3785,7 @@
     font-weight: 800;
     color: white;
     margin-bottom: 12px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .form-header p {
@@ -3978,7 +3983,7 @@ select.form-control option {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .contact-sidebar-card h3 i {
@@ -4142,7 +4147,7 @@ select.form-control option {
     font-weight: 900;
     margin-bottom: 15px;
     color: #000;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .cta-content p {
@@ -4326,7 +4331,7 @@ select.form-control option {
     font-size: 28px;
     font-weight: 800;
     color: #fff;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .success-modal-text {

@@ -442,7 +442,15 @@ function initializeForm() {
         });
         
         if (!isValid) {
-            alert('Veuillez corriger les erreurs dans le formulaire.');
+            // Afficher toast d'erreur si disponible, sinon ne rien faire (le formulaire HTML gère)
+            const existingToast = document.querySelector('.error-toast');
+            if (!existingToast) {
+                const toast = document.createElement('div');
+                toast.className = 'error-toast';
+                toast.innerHTML = '<i class="fas fa-exclamation-circle"></i> Veuillez corriger les erreurs dans le formulaire.';
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 4000);
+            }
             return;
         }
         
@@ -453,7 +461,12 @@ function initializeForm() {
         submitBtn.disabled = true;
         
         setTimeout(() => {
-            alert('✅ Merci ! Votre message a été envoyé avec succès.\nNous vous contacterons très bientôt.');
+            // Afficher le modal de succès si disponible (page contact)
+            const successModal = document.getElementById('successModal');
+            if (successModal && typeof bootstrap !== 'undefined') {
+                const modal = new bootstrap.Modal(successModal);
+                modal.show();
+            }
             
             contactForm.reset();
             
@@ -463,8 +476,6 @@ function initializeForm() {
             
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-            
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }, 1500);
     });
     

@@ -256,12 +256,6 @@
                                 <i class="fas fa-paper-plane"></i>
                                 Envoyer le Message
                             </button>
-
-                            <!-- Success Message -->
-                            <div id="successMessage" class="alert alert-success mt-3" style="display: none;">
-                                <i class="fas fa-check-circle"></i>
-                                Merci ! Votre message a été envoyé avec succès. Nous vous contacterons très bientôt.
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -316,6 +310,37 @@
             </div>
         </div>
     </section>
+
+    <!-- Professional Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content success-modal-content">
+                <div class="modal-body text-center py-5">
+                    <div class="success-icon-wrapper mb-4">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="success-modal-title mb-3">Message Envoyé avec Succès !</h3>
+                    <p class="success-modal-text mb-4">
+                        Merci de nous avoir contactés. Notre équipe a bien reçu votre message et vous répondra dans les plus brefs délais.
+                    </p>
+                    <div class="success-modal-info mb-4">
+                        <div class="info-row">
+                            <i class="fas fa-clock"></i>
+                            <span>Temps de réponse estimé : <strong>24-48 heures</strong></span>
+                        </div>
+                        <div class="info-row">
+                            <i class="fas fa-envelope"></i>
+                            <span>Une copie a été envoyée à votre adresse email</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-primary" data-bs-dismiss="modal">
+                        <i class="fas fa-thumbs-up"></i>
+                        Compris, merci !
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ============ MAP SECTION ============ -->
     <section class="section-padding section-light bg-pattern" id="map-section">
@@ -496,7 +521,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const contactForm = document.getElementById('contactForm');
-            const successMessage = document.getElementById('successMessage');
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             const phoneRegex = /^[+\d\s\-\(\)]{10,}$/;
@@ -548,7 +572,12 @@
                 }
 
                 if (!isValid) {
-                    alert('Veuillez corriger les erreurs dans le formulaire.');
+                    // Show error in a more professional way
+                    const errorToast = document.createElement('div');
+                    errorToast.className = 'error-toast';
+                    errorToast.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Veuillez corriger les champs en rouge.';
+                    document.body.appendChild(errorToast);
+                    setTimeout(() => errorToast.remove(), 3000);
                     return;
                 }
 
@@ -560,9 +589,6 @@
                 submitBtn.disabled = true;
 
                 setTimeout(() => {
-                    // Show success message
-                    successMessage.style.display = 'block';
-
                     // Reset form
                     contactForm.reset();
 
@@ -575,13 +601,9 @@
                         input.style.borderColor = '';
                     });
 
-                    // Scroll to success message
-                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                    // Hide message after 5 seconds
-                    setTimeout(() => {
-                        successMessage.style.display = 'none';
-                    }, 5000);
+                    // Show professional success modal
+                    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                    successModal.show();
                 }, 1500);
             });
         });

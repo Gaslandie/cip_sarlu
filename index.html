@@ -352,7 +352,7 @@
                         <!-- Service 5: Solutions Multi-Techniques -->
                         <div class="service-card">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
                                     alt="Solutions Multi-Techniques" class="img-fluid" loading="lazy">
                             </div>
                             <div class="service-content">
@@ -387,7 +387,7 @@
                         <!-- Service 6: Industrie Minière -->
                         <div class="service-card">
                             <div class="service-image">
-                                <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                                <img src="src/img/industrie-mine.jpg"
                                     alt="Industrie Minière" class="img-fluid" loading="lazy">
                             </div>
                             <div class="service-content">
@@ -451,48 +451,39 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        <img src="src/img/kankan.jpeg"
                             alt="Bibliothèque Kankan" class="project-image img-fluid" loading="lazy">
                         <div class="project-overlay">
                             <div class="project-category">BÂTIMENT PUBLIC</div>
                             <h3 class="project-title">Bibliothèque Municipale de Kankan</h3>
                             <p class="project-description">Construction complète • 2023-2024</p>
-                            <a href="#" class="project-link text-white">
-                                Voir le projet
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
+                            
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        <img src="src/img/ansoumania.png"
                             alt="Immeuble R+2" class="project-image img-fluid" loading="lazy">
                         <div class="project-overlay">
                             <div class="project-category">RÉSIDENTIEL</div>
                             <h3 class="project-title">Immeuble R+2 Ansoumaniah</h3>
                             <p class="project-description">Usage d'habitation • 2023-2024</p>
-                            <a href="#" class="project-link text-white">
-                                Voir le projet
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
+                           
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        <img src="src/img/nongo.jpeg"
                             alt="Rénovation" class="project-image img-fluid" loading="lazy">
                         <div class="project-overlay">
                             <div class="project-category">RÉNOVATION</div>
                             <h3 class="project-title">Résidence Privée Nongo</h3>
                             <p class="project-description">Rénovation complète • 2018-2019</p>
-                            <a href="#" class="project-link text-white">
-                                Voir le projet
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
+                            
                         </div>
                     </div>
                 </div>
@@ -527,7 +518,7 @@
     </section>
 
     <!-- ============ CONTACT SECTION ============ -->
-    <section class="section-padding section-light bg-pattern" id="contact">
+    <section class="section-padding section-dark bg-pattern" id="contact">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-badge">Contactez-Nous</span>
@@ -578,36 +569,46 @@
                 <!-- Contact Form -->
                 <div class="col-lg-7">
                     <form class="contact-form" data-aos="fade-left" id="contactForm" novalidate>
-                        <div class="row mb-3">
+                        <!-- Row 1: Name & Email -->
+                        <div class="row mb-4">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <div class="form-group">
                                     <label for="name" class="form-label">Nom Complet *</label>
-                                    <input type="text" id="name" class="form-control" placeholder="Votre nom" required>
+                                    <input type="text" id="name" class="form-control" placeholder="Votre nom complet" required>
                                     <div class="form-feedback">Veuillez entrer votre nom complet</div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="email" class="form-label">Email *</label>
-                                    <input type="email" id="email" class="form-control" placeholder="votre@email.com"
-                                        required>
+                                    <input type="email" id="email" class="form-control" placeholder="votre@email.com" required>
                                     <div class="form-feedback">Veuillez entrer une adresse email valide</div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <!-- Row 2: Phone & Company -->
+                        <div class="row mb-4">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <div class="form-group">
                                     <label for="phone" class="form-label">Téléphone *</label>
-                                    <input type="tel" id="phone" class="form-control" placeholder="+224 XXX XX XX XX"
-                                        required>
-                                    <div class="form-feedback">Veuillez entrer un numéro de téléphone valide</div>
+                                    <input type="tel" id="phone" class="form-control" placeholder="+224 XXX XX XX XX" required>
+                                    <div class="form-feedback">Veuillez entrer un numéro valide</div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="service" class="form-label">Service *</label>
+                                    <label for="company" class="form-label">Entreprise</label>
+                                    <input type="text" id="company" class="form-control" placeholder="Nom de votre entreprise">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 3: Service & Budget -->
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <div class="form-group">
+                                    <label for="service" class="form-label">Service Intéressé *</label>
                                     <select id="service" class="form-control" required>
                                         <option value="">Sélectionnez un service</option>
                                         <option>Construction / BTP</option>
@@ -616,28 +617,95 @@
                                         <option>Ingénierie Électrique</option>
                                         <option>Solutions Multi-Techniques</option>
                                         <option>Industrie Minière</option>
+                                        <option>Autres</option>
                                     </select>
                                     <div class="form-feedback">Veuillez sélectionner un service</div>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="budget" class="form-label">Budget Estimé</label>
+                                    <select id="budget" class="form-control">
+                                        <option value="">Sélectionnez un budget</option>
+                                        <option>Moins de 10 millions GNF</option>
+                                        <option>10-50 millions GNF</option>
+                                        <option>50-100 millions GNF</option>
+                                        <option>100-500 millions GNF</option>
+                                        <option>Plus de 500 millions GNF</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="form-group mb-4">
-                            <label for="message" class="form-label">Message *</label>
-                            <textarea id="message" class="form-control" placeholder="Décrivez votre projet..." rows="4"
-                                required></textarea>
-                            <div class="form-feedback">Veuillez entrer votre message</div>
+                        <!-- Subject -->
+                        <div class="mb-4">
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Sujet *</label>
+                                <input type="text" id="subject" class="form-control" placeholder="Quel est le sujet de votre message ?" required>
+                                <div class="form-feedback">Veuillez entrer un sujet</div>
+                            </div>
                         </div>
 
-                        <button type="submit" class="btn-primary w-100">
-                            Envoyer le Message
+                        <!-- Message -->
+                        <div class="mb-4">
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea id="message" class="form-control" placeholder="Décrivez votre projet en détail..." rows="6" required></textarea>
+                                <div class="form-feedback">Veuillez entrer votre message</div>
+                            </div>
+                        </div>
+
+                        <!-- Checkbox -->
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input type="checkbox" id="terms" class="form-check-input" required>
+                                <label class="form-check-label" for="terms">
+                                    J'accepte les conditions d'utilisation et la politique de confidentialité
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-primary w-100 btn-submit">
                             <i class="fas fa-paper-plane"></i>
+                            Envoyer le Message
                         </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Professional Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content success-modal-content">
+                <div class="modal-body text-center py-5">
+                    <div class="success-icon-wrapper mb-4">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="success-modal-title mb-3">Message Envoyé avec Succès !</h3>
+                    <p class="success-modal-text text-white mb-4">
+                        Merci de nous avoir contactés. Notre équipe a bien reçu votre message et vous répondra dans les plus brefs délais.
+                    </p>
+                    <div class="success-modal-info mb-4">
+                        <div class="info-row">
+                            <i class="fas fa-clock"></i>
+                            <span>Temps de réponse estimé : <strong>24-48 heures</strong></span>
+                        </div>
+                        <div class="info-row">
+                            <i class="fas fa-envelope"></i>
+                            <span>Une copie a été envoyée à votre adresse email</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-primary" data-bs-dismiss="modal">
+                        <i class="fas fa-thumbs-up"></i>
+                        Compris, merci !
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <div id="footer-container"></div>

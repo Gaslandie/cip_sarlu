@@ -234,6 +234,7 @@
     justify-content: center;
     border-radius: 50%;
     background: rgba(41, 219, 25, 0.1);
+    text-decoration: none;
 }
 
 .top-bar-social a:hover {

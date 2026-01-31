@@ -472,6 +472,17 @@
      width: 100%;
  }
 
+ /* Lien actif - page actuelle */
+ .nav-link.active {
+     color: var(--primary-green) !important;
+     font-weight: 600;
+ }
+
+ .nav-link.active::after {
+     width: 100%;
+     background: var(--primary-green);
+ }
+
  .cta-nav {
      padding: 12px 30px !important;
     background-color: var(--primary-green) !important;

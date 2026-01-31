@@ -320,6 +320,7 @@ function initializeNavigation() {
         return;
     }
     
+    // Effet scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 100) {
             nav.classList.add('scrolled');
@@ -328,7 +329,31 @@ function initializeNavigation() {
         }
     });
     
+    // Détecter la page actuelle et marquer le lien actif
+    highlightActiveNavLink();
+    
     console.log('✅ Navigation scroll activée');
+}
+
+// Marquer le lien de navigation actif
+function highlightActiveNavLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        
+        // Vérifier si c'est le lien de la page actuelle
+        if (href === currentPage || 
+            (currentPage === '' && href === 'index.html') ||
+            (currentPage === '/' && href === 'index.html')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+    
+    console.log(`📍 Page actuelle: ${currentPage}`);
 }
 
 // ============ CARROUSEL DE SERVICES ============

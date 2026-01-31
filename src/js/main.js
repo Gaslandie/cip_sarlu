@@ -2,19 +2,11 @@
 
 async function loadComponent(componentName) {
     try {
-        // Déterminer le chemin correct selon la page
-        let basePath = 'src/components/';
+        // Tous les fichiers HTML sont à la racine, donc on utilise toujours le même chemin
+        const basePath = 'src/components/';
         
-        // Si on est dans pages/about.html - vérifier plusieurs façons
         const pathname = window.location.pathname;
         console.log(`📍 Chemin actuel: ${pathname}`);
-        
-        if (pathname.includes('/pages/') || pathname.endsWith('about.html')) {
-            basePath = '../src/components/';
-            console.log(`📍 Détecté: about.html - Utilisation du chemin relatif`);
-        } else {
-            console.log(`📍 Détecté: index.html - Utilisation du chemin direct`);
-        }
         
         const fullPath = `${basePath}${componentName}.html`;
         console.log(`📦 Tentative de chargement: ${fullPath}`);
@@ -29,7 +21,6 @@ async function loadComponent(componentName) {
         return html;
     } catch (error) {
         console.error(`❌ Erreur de chargement du composant ${componentName}:`, error);
-        console.error(`   URL tentée: ${basePath}${componentName}.html`);
         return null;
     }
 }

@@ -118,18 +118,80 @@
      visibility: hidden;
  }
 
- .loader {
-     width: 80px;
-     height: 80px;
-     border: 4px solid rgba(41, 219, 25, 0.1);
-     border-top: 4px solid var(--primary-green);
-     border-radius: 50%;
-     animation: spin 1s linear infinite;
+ .preloader-content {
+     text-align: center;
  }
 
- @keyframes spin {
-     to {
-         transform: rotate(360deg);
+ .preloader-logo {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 72px;
+     font-weight: 900;
+     color: #fff;
+     letter-spacing: 4px;
+     animation: logoPulse 2s ease-in-out infinite;
+ }
+
+ .preloader-logo span {
+     color: var(--primary-green);
+ }
+
+ @keyframes logoPulse {
+     0%, 100% {
+         opacity: 1;
+         transform: scale(1);
+         text-shadow: 0 0 0 rgba(41, 219, 25, 0);
+     }
+     50% {
+         opacity: 0.8;
+         transform: scale(1.02);
+         text-shadow: 0 0 40px rgba(41, 219, 25, 0.5), 0 0 80px rgba(41, 219, 25, 0.3);
+     }
+ }
+
+ .preloader-tagline {
+     font-size: 14px;
+     color: rgba(255, 255, 255, 0.6);
+     text-transform: uppercase;
+     letter-spacing: 4px;
+     margin-top: 15px;
+     font-weight: 500;
+ }
+
+ .preloader-dots {
+     display: flex;
+     justify-content: center;
+     gap: 8px;
+     margin-top: 30px;
+ }
+
+ .preloader-dots span {
+     width: 10px;
+     height: 10px;
+     background: var(--primary-green);
+     border-radius: 50%;
+     animation: dotBounce 1.4s ease-in-out infinite;
+ }
+
+ .preloader-dots span:nth-child(1) {
+     animation-delay: 0s;
+ }
+
+ .preloader-dots span:nth-child(2) {
+     animation-delay: 0.2s;
+ }
+
+ .preloader-dots span:nth-child(3) {
+     animation-delay: 0.4s;
+ }
+
+ @keyframes dotBounce {
+     0%, 80%, 100% {
+         transform: scale(0.6);
+         opacity: 0.4;
+     }
+     40% {
+         transform: scale(1);
+         opacity: 1;
      }
  }
 
@@ -442,6 +504,110 @@
      font-weight: 600;
      text-transform: uppercase;
      letter-spacing: 1px;
+ }
+
+ /* ============ SCROLL DOWN INDICATOR ============ */
+ .scroll-down-indicator {
+     position: absolute;
+     bottom: 40px;
+     left: 50%;
+     transform: translateX(-50%);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 10px;
+     cursor: pointer;
+     text-decoration: none;
+     z-index: 10;
+     animation: fadeInUp 1s ease-out 1.5s both;
+ }
+
+ .scroll-down-indicator .mouse {
+     width: 28px;
+     height: 45px;
+     border: 2px solid rgba(255, 255, 255, 0.6);
+     border-radius: 20px;
+     position: relative;
+     transition: all 0.3s ease;
+ }
+
+ .scroll-down-indicator:hover .mouse {
+     border-color: var(--primary-green);
+ }
+
+ .scroll-down-indicator .wheel {
+     width: 4px;
+     height: 8px;
+     background: var(--primary-green);
+     border-radius: 2px;
+     position: absolute;
+     top: 8px;
+     left: 50%;
+     transform: translateX(-50%);
+     animation: scrollWheel 2s ease-in-out infinite;
+ }
+
+ @keyframes scrollWheel {
+     0%, 100% {
+         opacity: 1;
+         transform: translateX(-50%) translateY(0);
+     }
+     50% {
+         opacity: 0.3;
+         transform: translateX(-50%) translateY(12px);
+     }
+ }
+
+ .scroll-down-indicator .scroll-arrows {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 0;
+ }
+
+ .scroll-down-indicator .scroll-arrows span {
+     display: block;
+     width: 12px;
+     height: 12px;
+     border-right: 2px solid rgba(255, 255, 255, 0.6);
+     border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+     transform: rotate(45deg);
+     animation: scrollArrow 2s ease-in-out infinite;
+     margin-top: -6px;
+ }
+
+ .scroll-down-indicator .scroll-arrows span:nth-child(1) {
+     animation-delay: 0s;
+ }
+
+ .scroll-down-indicator .scroll-arrows span:nth-child(2) {
+     animation-delay: 0.2s;
+ }
+
+ .scroll-down-indicator:hover .scroll-arrows span {
+     border-color: var(--primary-green);
+ }
+
+ @keyframes scrollArrow {
+     0%, 100% {
+         opacity: 0;
+         transform: rotate(45deg) translate(-5px, -5px);
+     }
+     50% {
+         opacity: 1;
+         transform: rotate(45deg) translate(5px, 5px);
+     }
+ }
+
+ @keyframes fadeInUp {
+     from {
+         opacity: 0;
+         transform: translateX(-50%) translateY(20px);
+     }
+     to {
+         opacity: 1;
+         transform: translateX(-50%) translateY(0);
+     }
  }
 
  /* ============ SECTIONS COMMON STYLES ============ */

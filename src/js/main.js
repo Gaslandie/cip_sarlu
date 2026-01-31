@@ -118,6 +118,7 @@ async function initializeApp() {
     initializePreloader();
     initializeCustomCursor();
     initializeParticles();
+    initializeTopBar();
     initializeNavigation();
     initializeCarousel();
     initializeForm();
@@ -222,6 +223,91 @@ function initializeParticles() {
     }
     
     console.log('✅ Particules créées (30)');
+}
+
+// ============ TOP BAR (SCROLL ET LANGUE) ============
+
+function initializeTopBar() {
+    const topBar = document.querySelector('.top-bar');
+    const nav = document.getElementById('nav');
+    
+    if (!topBar) {
+        console.warn('⚠️ Top bar non trouvée');
+        return;
+    }
+    
+    // Comportement au scroll - cacher la top bar
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll > 100) {
+            topBar.classList.add('hidden');
+            if (nav) nav.style.top = '0';
+        } else {
+            topBar.classList.remove('hidden');
+            if (nav) nav.style.top = '40px';
+        }
+        
+        lastScroll = currentScroll;
+    });
+    
+    // Gestion du changement de langue
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const lang = this.dataset.lang;
+            
+            // Mettre à jour les classes actives
+            langButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Sauvegarder la préférence
+            localStorage.setItem('cip-language', lang);
+            
+            // Ici vous pouvez ajouter la logique de traduction
+            console.log(`🌐 Langue changée: ${lang.toUpperCase()}`);
+            
+            // Afficher une notification
+            showLanguageNotification(lang);
+        });
+    });
+    
+    // Charger la langue sauvegardée
+    const savedLang = localStorage.getItem('cip-language') || 'fr';
+    const savedBtn = document.querySelector(`.lang-btn[data-lang="${savedLang}"]`);
+    if (savedBtn) {
+        langButtons.forEach(b => b.classList.remove('active'));
+        savedBtn.classList.add('active');
+    }
+    
+    console.log('✅ Top bar initialisée');
+}
+
+function showLanguageNotification(lang) {
+    const messages = {
+        'fr': 'Langue française sélectionnée',
+        'en': 'English language selected'
+    };
+    
+    // Supprimer notification existante
+    const existingNotif = document.querySelector('.lang-notification');
+    if (existingNotif) existingNotif.remove();
+    
+    // Créer la notification
+    const notification = document.createElement('div');
+    notification.className = 'lang-notification';
+    notification.innerHTML = `<i class="fas fa-globe"></i> ${messages[lang] || messages['fr']}`;
+    document.body.appendChild(notification);
+    
+    // Animation d'entrée
+    setTimeout(() => notification.classList.add('show'), 10);
+    
+    // Supprimer après 2 secondes
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 2000);
 }
 
 // ============ NAVIGATION (EFFET SCROLL) ============

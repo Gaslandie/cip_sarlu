@@ -196,10 +196,183 @@
      }
  }
 
- /* ============ NAVIGATION ============ */
+/* ============ TOP BAR ============ */
+.top-bar {
+    background: linear-gradient(90deg, var(--dark) 0%, #1a2332 100%);
+    border-bottom: 1px solid rgba(41, 219, 25, 0.2);
+    padding: 8px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
+    font-size: 0.85rem;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Réseaux sociaux */
+.top-bar-social {
+    display: flex;
+    gap: 12px;
+}
+
+.top-bar-social a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.top-bar-social a:hover {
+    color: var(--primary-green);
+    background: rgba(41, 219, 25, 0.15);
+    transform: translateY(-2px);
+}
+
+.top-bar-social a:hover .fa-facebook-f {
+    color: #1877F2;
+}
+
+.top-bar-social a:hover .fa-linkedin-in {
+    color: #0A66C2;
+}
+
+.top-bar-social a:hover .fa-whatsapp {
+    color: #25D366;
+}
+
+/* Contact (téléphone, email) */
+.top-bar-contact {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.top-bar-contact a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.top-bar-contact a i {
+    color: var(--primary-green);
+    font-size: 0.8rem;
+}
+
+.top-bar-contact a:hover {
+    color: var(--primary-green);
+}
+
+.top-bar-contact a span {
+    font-weight: 500;
+}
+
+/* Sélecteur de langue */
+.top-bar-lang {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.lang-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-btn.active {
+    color: var(--primary-green);
+    background: rgba(41, 219, 25, 0.15);
+    font-weight: 600;
+}
+
+.lang-flag {
+    font-size: 1rem;
+}
+
+.lang-code {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.lang-separator {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.9rem;
+}
+
+/* Top bar animation au scroll */
+.top-bar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.top-bar {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Notification de changement de langue */
+.lang-notification {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--dark) 0%, #1a2332 100%);
+    border: 1px solid var(--primary-green);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateX(120%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.lang-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.lang-notification i {
+    color: var(--primary-green);
+    font-size: 1.1rem;
+}
+
+/* ============ NAVIGATION ============ */
  .navbar {
      position: fixed;
-     top: 0;
+     top: 40px;
      left: 0;
      width: 100%;
      z-index: 1000;
@@ -1440,6 +1613,43 @@
  /* Mobile Styles */
  @media (max-width: 768px) {
 
+    /* Top Bar Mobile */
+    .top-bar {
+        padding: 6px 0;
+    }
+
+    .top-bar-content {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .top-bar-contact {
+        display: none;
+    }
+
+    .top-bar-social {
+        gap: 8px;
+    }
+
+    .top-bar-social a {
+        width: 26px;
+        height: 26px;
+        font-size: 0.8rem;
+    }
+
+    .lang-btn {
+        padding: 3px 6px;
+        font-size: 0.75rem;
+    }
+
+    .lang-flag {
+        font-size: 0.9rem;
+    }
+
+    .navbar {
+        top: 35px;
+    }
+
      /* Désactiver le curseur sur mobile */
      .cursor,
      .cursor-follower {
@@ -1623,6 +1833,16 @@
 
  /* Tablet Styles */
  @media (max-width: 992px) {
+
+    /* Top Bar Tablet */
+    .top-bar-contact span {
+        display: none;
+    }
+
+    .top-bar-contact a i {
+        font-size: 1rem;
+    }
+
      .service-card {
          grid-template-columns: 1fr;
      }
